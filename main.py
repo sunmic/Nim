@@ -25,6 +25,9 @@ if __name__ == "__main__":
 
     # initializing size of the game board
     ele = int(input("Input the number of piles "))
+    #ele = 1
+    
+    print ("Number of piles: " + str(ele))
     lis = []
 
     print("Input the number of sticks in each pile (separate with ENTER)")
@@ -33,7 +36,7 @@ if __name__ == "__main__":
 
     game = Board(lis)
     print("Enter the number of sticks to remove, then space followed by the pile to remove them from (starting from 0)")
-    print("The person who removes the last stick wins!") #loses!")
+    print("The person who removes the last stick wins!")
     print("Example: to remove 3 sticks from pile 2, enter 3 2")
 
     player_win = True
@@ -44,6 +47,9 @@ if __name__ == "__main__":
         # player's turn
         user = str(input("Player turn: "))
         player_remove = [int(i) for i in user.split(' ')]
+
+        if len(player_remove) == 1 and ele == 1:
+            player_remove.append(0)
 
         while not isValid(player_remove, game.board):
             print("Invalid move! Please input again.")
