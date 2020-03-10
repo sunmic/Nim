@@ -3,8 +3,8 @@
 # decide based on the current state
 def decide(state, alpha, beta, maxTurn):
     # determining final state
-    if (sum(state) == 1 and maxTurn) or (sum(state) == 0 and not maxTurn): return (-1, [state])
-    if (sum(state) == 1 and not maxTurn) or (sum(state) == 0 and maxTurn): return (1, [state])
+    if (sum(state) == 1 and maxTurn) or (sum(state) == 0 and not maxTurn): return (1, [state])
+    if (sum(state) == 1 and not maxTurn) or (sum(state) == 0 and maxTurn): return (-1, [state])
     
     if maxTurn:
         res_max = -float('inf')
@@ -40,7 +40,8 @@ def find_next(state):
     res = []
     
     for i in range(len(state)):
-        for m in range(1, state[i] + 1):
+        #for m in range(1, state[i] + 1):
+        for m in range(1, min(3, state[i]) + 1):    
             temp = list(state[:])
             temp[i] -= m
             

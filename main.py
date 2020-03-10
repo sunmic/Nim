@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     game = Board(lis)
     print("Enter the number of sticks to remove, then space followed by the pile to remove them from (starting from 0)")
-    print("The person who removes the last stick loses!")
+    print("The person who removes the last stick wins!") #loses!")
     print("Example: to remove 3 sticks from pile 2, enter 3 2")
 
     player_win = True
@@ -67,7 +67,7 @@ if __name__ == "__main__":
             player_win = False
             break
 
-    if player_win:
+    if not player_win:
         print(game.board)
         print("You won!")
     else:
